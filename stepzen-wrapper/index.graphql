@@ -1,0 +1,10 @@
+schema
+  @sdl(
+    files: [
+      "curl-01/index.graphql"
+      "curl-02/index.graphql"
+      "curl/index.graphql"
+    ]
+  ) {
+  query: Query
+}

@@ -1,0 +1,56 @@
+type CreateOrderRoot {
+  asset_class: String
+  asset_id: String
+  canceled_at: JSON
+  client_order_id: String
+  created_at: DateTime
+  expired_at: JSON
+  extended_hours: Boolean
+  failed_at: JSON
+  filled_at: JSON
+  filled_avg_price: JSON
+  filled_qty: Int
+  hwm: JSON
+  id: String
+  legs: JSON
+  limit_price: JSON
+  notional: JSON
+  order_class: String
+  order_type: String
+  qty: Int
+  replaced_at: JSON
+  replaced_by: JSON
+  replaces: JSON
+  side: String
+  status: String
+  stop_price: JSON
+  submitted_at: DateTime
+  symbol: String
+  time_in_force: String
+  trail_percent: JSON
+  trail_price: JSON
+  type: String
+  updated_at: DateTime
+}
+
+type Mutation {
+  CreateOrder(
+    qty: Int
+    side: String
+    symbol: String
+    time_in_force: String
+    type: String
+  ): CreateOrderRoot
+    @rest(
+      method: POST
+      endpoint: "https://paper-api.alpaca.markets/v2/orders"
+      headers: [
+        { name: "apca-api-key-id", value: "$apca_api_key_id_0769a98b7c;" }
+        {
+          name: "apca-api-secret-key"
+          value: "$apca_api_secret_key_3a75daf459;"
+        }
+      ]
+      configuration: "curl_import_config"
+    )
+}

@@ -1,0 +1,47 @@
+type AccountRoot {
+  account_blocked: Boolean
+  account_number: String
+  accrued_fees: Int
+  buying_power: Int
+  cash: Int
+  created_at: DateTime
+  crypto_status: String
+  currency: String
+  daytrade_count: Int
+  daytrading_buying_power: Int
+  equity: Int
+  id: String
+  initial_margin: Int
+  last_equity: Int
+  last_maintenance_margin: Int
+  long_market_value: Int
+  maintenance_margin: Int
+  multiplier: Int
+  non_marginable_buying_power: Int
+  pattern_day_trader: Boolean
+  pending_transfer_in: Int
+  portfolio_value: Int
+  regt_buying_power: Int
+  short_market_value: Int
+  shorting_enabled: Boolean
+  sma: Int
+  status: String
+  trade_suspended_by_user: Boolean
+  trading_blocked: Boolean
+  transfers_blocked: Boolean
+}
+
+type Query {
+  AccountQuery: AccountRoot
+    @rest(
+      endpoint: "https://paper-api.alpaca.markets/v2/account"
+      headers: [
+        { name: "apca-api-key-id", value: "$apca_api_key_id_0769a98b7c;" }
+        {
+          name: "apca-api-secret-key"
+          value: "$apca_api_secret_key_3a75daf459;"
+        }
+      ]
+      configuration: "curl_import_config"
+    )
+}
