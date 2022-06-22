@@ -18,8 +18,8 @@
 				symbol,
 				qty,
 				time_in_force: 'day',
-				type: 'buy',
-				side: 'market'
+				type: 'market',
+				side: 'buy'
 			});
 
 			handleClose(false);
